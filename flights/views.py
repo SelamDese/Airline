@@ -3,4 +3,5 @@ from django.shortcuts import render
 
 # Create your views here.
 def index(request):
-    return HttpResponse("flights info")
+    # return HttpResponse("flights")
+    return render(request, "flights/index.html")

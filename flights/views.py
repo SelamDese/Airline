@@ -6,15 +6,16 @@ from .models import Flight
 def index(request):
     # return HttpResponse("flights")
     context = {
-        "flights" : Flights.objects.all()
+        "flights" : Flight.objects.all()
     }
     return render(request, "flights/index.html", context)
- def flight(request, flight_id):
-     try:
-     flight = Flight.objects.get(pk=flight_id)
-     except Flight.DoesNotExist:
-             raise Http404("Flight does not exist")
+
+def flight(request, flight_id):
+    try:
+        flight = Flight.objects.get(pk=flight_id)
+    except Flight.DoesNotExist:
+        raise Http404("Flight does not exist")
     context = {
         "flight": flight
      }
-     return render(request, "flights/flight.html", context)
+    return render(request, "flights/flight.html", context)

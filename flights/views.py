@@ -6,6 +6,6 @@ from .models import Flight
 def index(request):
     # return HttpResponse("flights")
     context = {
-        "flights" : Flight.object.all()
+        "flights" : Flight.objects.all()
     }
-    return render(request, "flights/index.html", contaxt)
+    return render(request, "flights/index.html", context)

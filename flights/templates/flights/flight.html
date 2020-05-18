@@ -8,5 +8,11 @@
         <li> origin: {{ flight.origin }}/li>
         <li> destination: {{ flight.destination }}/li>
     </ul>
+    <h2>Passengers</h2>
+    <ul>
+        {% for passenger in passengers %}
+            <li>{{ passenger }}</li> 
+        {% endfor %}
+    </ul>
     <a href="{% url 'index' %}">Back to full listing</a>
 {% endblock%}

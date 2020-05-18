@@ -1,6 +1,6 @@
 {% extends "Flights/base.html" %}}
 {% block title %}
-    Flight {{% flight.id %}}
+    Flight {{ flight.id }}
 {% endblock %}
 {% block body %}
     <h1>Flight {{ flight_id }}</h1>
@@ -10,4 +10,3 @@
     </ul>
     <a href="{% url 'index' %}">Back to full listing</a>
 {% endblock%}
-</html>

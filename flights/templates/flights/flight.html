@@ -12,6 +12,8 @@
     <ul>
         {% for passenger in passengers %}
             <li>{{ passenger }}</li> 
+            {% empty %}
+            <li>No passengers</li>
         {% endfor %}
     </ul>
     <a href="{% url 'index' %}">Back to full listing</a>

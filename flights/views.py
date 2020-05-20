@@ -1,6 +1,6 @@
 from django.http import HttpResponse, Http404
 from django.shortcuts import render
-from .models import Flight
+from .models import Flight, Passenger
 
 # Create your views here.
 def index(request):
@@ -20,3 +20,7 @@ def flight(request, flight_id):
         "passengers": flight.passengers.all()
      }
     return render(request, "flights/flight.html", context)
+
+def Book(request, flight_id):
+    passenger_id = int(request.POST["passenger"])
+    passenger = Passenger.objects.get(pk=passenger_id)

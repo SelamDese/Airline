@@ -33,4 +33,4 @@ def Book(request, flight_id):
     except Passenger.DoesNotExist:
         return render(request, "flights/error.html", {"message":"No passenger."})
 
-    
+    passenger.flights.add(flight)

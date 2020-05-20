@@ -20,7 +20,7 @@
     <h2>Add a passenger</h2>
     {% if non_passengers %}
     <form action="{% url 'book' flight.id %}" method="post">
-        <select name="pasenger">
+        <select name="passenger">
             {% for passenger in non_passengers %}
                 <option value="{{passenger.id}}">
                     {{ passenger }}

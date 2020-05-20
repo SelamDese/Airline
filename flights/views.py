@@ -19,7 +19,7 @@ def flight(request, flight_id):
     context = {
         "flight": flight,
         "passengers": flight.passengers.all(),
-        "non-passengers": Passenger.objects.Exclude(flights=flight).all()
+        "non-passengers": Passenger.objects.exclude(flights=flight).all()
      }
     return render(request, "flights/flight.html", context)
 

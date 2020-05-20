@@ -22,5 +22,9 @@ def flight(request, flight_id):
     return render(request, "flights/flight.html", context)
 
 def Book(request, flight_id):
-    passenger_id = int(request.POST["passenger"])
-    passenger = Passenger.objects.get(pk=passenger_id)
+    try
+        passenger_id = int(request.POST["passenger"])
+        passenger = Passenger.objects.get(pk=passenger_id)
+        flight = Flight.objects.get(pk=flight_id)
+    except Passenger.DoesNotExist:
+        return render(request, "flights/error.html")

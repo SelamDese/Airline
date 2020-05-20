@@ -1,6 +1,7 @@
-from django.http import HttpResponse, Http404
+from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.shortcuts import render
 from .models import Flight, Passenger
+from django.urls import reverse
 
 # Create your views here.
 def index(request):
@@ -34,3 +35,4 @@ def Book(request, flight_id):
         return render(request, "flights/error.html", {"message":"No passenger."})
 
     passenger.flights.add(flight)
+    return HttpResponseRedirect(reverse("flight", args=(flight_id,)))

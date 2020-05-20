@@ -26,6 +26,7 @@ def Book(request, flight_id):
         passenger_id = int(request.POST["passenger"])
         passenger = Passenger.objects.get(pk=passenger_id)
         flight = Flight.objects.get(pk=flight_id)
+    except KeyError:
     except Flight.DoesNotExist:
         return render(request, "flights/error.html", {"message":"No flight."})
     except Passenger.DoesNotExist:

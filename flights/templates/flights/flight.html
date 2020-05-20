@@ -23,10 +23,11 @@
         <select name="pasenger">
             {% for passenger in non_passengers %}
                 <option value="{{passenger.id}}">
-                    {{ pasenger }}
+                    {{ passenger }}
                 </option>
             {% endfor%}
         </select>
+        <input type="submit" value="Book Flight"/>
     </form>
     {% else %}
         <div>No passengers to add.</div>
